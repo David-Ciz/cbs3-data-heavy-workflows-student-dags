@@ -88,7 +88,7 @@ def resolve_inputs(**context) -> None:
 
     ti = context["ti"]
     ti.xcom_push(key="top", value=top)
-    ti.xcom_push(key="what was it that the bash operator expects here? TODO: find that out and definitely don't just leave it like this", value=traj)
+    ti.xcom_push(key="traj", value=traj)
     ti.xcom_push(key="ptraj_in", value=ptraj_in)
     ti.xcom_push(key="out_dir", value=out_dir)
 
