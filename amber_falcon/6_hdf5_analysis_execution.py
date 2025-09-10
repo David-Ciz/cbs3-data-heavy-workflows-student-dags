@@ -130,7 +130,7 @@ def compute_distances_from_indices(**context) -> None:
 
 
 def upload_results(**context) -> None:
-    out_dir = context["ti"].xcom_pull(task_ids="resolve_inputs", key="out_dir")
+    out_dir = context["ti"].xcom_pull(task_ids="resolve_analysis_inputs", key="out_dir")
     if not out_dir:
         raise RuntimeError("out_dir not set")
 
