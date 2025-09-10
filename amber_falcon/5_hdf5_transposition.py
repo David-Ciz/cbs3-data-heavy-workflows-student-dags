@@ -122,7 +122,7 @@ def upload_results(**context) -> None:
         for fn in files:
             local_path = os.path.join(root, fn)
             relative_path = os.path.relpath(local_path, out_dir)
-            irods.put_data_object_to_dataset( dataset_id=new_dataset_id, local_filepath=local_path, dataset_filepath="./", access="project", project=PROJECT_SHORTNAME)
+            irods.put_data_object_to_dataset(dataset_id=new_dataset_id, local_filepath=local_path, dataset_filepath="../admin/", access="project", project=PROJECT_SHORTNAME)
             print(f"Uploaded {relative_path} to dataset {new_dataset_id}.")
 
     print(f"All results uploaded to dataset {new_dataset_id}.")

@@ -32,7 +32,7 @@ def download_dataset(**context):
         raise ValueError("No dataset_id provided. Set Variable UNIFIED_DATASET_ID or pass it in conf/params.")
     os.makedirs(DOWNLOAD_ROOT, exist_ok=True)
     out_dir = os.path.join(DOWNLOAD_ROOT, dataset_id)
-
+    context["ti"].xcom_push(key="dataset_dir", value=out_dir)
     if os.path.exists(out_dir):
         print(f"Dataset {dataset_id} already present at {out_dir}; skipping download.")
         return
@@ -107,7 +107,7 @@ with DAG(
     )
     resolve = PythonOperator(
         task_id="resolve_inputs",
-        python_callable=resolve_inputs,
+        python_callable=OH_NO_THIS_IS_NOT_CORRECT_AT_ALL_THIS_SHOULD_CALL_A_FUNCTION_NOT_BE_A_STRING_SILLY_SILLY_DAVID,
     )
 
     fetch_data >> resolve
